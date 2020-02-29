@@ -1,7 +1,7 @@
 // Copyright 2018 Your Name <your_email>
 
 #include <gtest/gtest.h>
-#include <source.cpp>
+#include "source.cpp"
 
 TEST(stack, Text) {
     stack<int> test;
