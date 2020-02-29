@@ -134,6 +134,5 @@ int stack<T>::size() {
 
 
 int main() {
-
     return 0;
 }
