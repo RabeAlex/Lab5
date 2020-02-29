@@ -5,7 +5,6 @@
 
 TEST(stack, Text) {
     stack<int> test;
-    
     test.push_emplace(1);
     test.push(2);
     test.push_emplace(3);
