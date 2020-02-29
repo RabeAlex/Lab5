@@ -32,13 +32,11 @@ public:
     stack(){
         bottom = nullptr;
     }
-    
     ~stack(){
         for (size_t i = 0; i < this->size(); ++i) {
             pop();
         }
     }
-
     template <typename ... Args>
     void push_emplace(Args&&... value){
         if (bottom == nullptr) {
@@ -51,7 +49,6 @@ public:
             current->pNext = new Node(std::forward<Args>(value)...);
         }
     }
-    
     void push(const T& value) {
         if (bottom == nullptr) {
             bottom = new Node(value);
@@ -63,7 +60,6 @@ public:
             current->pNext = new Node(value);
         }
     }
-    
     void push(T&& value) {
         {
             if (bottom == nullptr) {
@@ -77,7 +73,6 @@ public:
             }
         }
     }
-    
     const T& head() const {
         Node *current = bottom;
         while (current->pNext != nullptr) {
@@ -85,7 +80,6 @@ public:
         }
         return current->data;
     }
-    
     T pop(){
         if (this->size() == 1){
             Node *temp = bottom;
@@ -105,7 +99,6 @@ public:
             return back;
         }
     }
-    
     int size(){
         int Size = 0;
         Node* FullStack = bottom;
