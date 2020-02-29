@@ -13,16 +13,16 @@ class stack {
         T data;
 
         explicit Node(const T& value)
-                : data(value), pNext(nullptr)
+                : pNext(nullptr), data(value)
         {}
 
         explicit Node(T&& value)
-                : data(std::move(value)), pNext(nullptr)
+                : pNext(nullptr), data(std::move(value))
         {}
 
         template<typename... Args>
         explicit Node(Args &&... value)
-                : data(std::forward<Args>(value)...), pNext(nullptr)
+                : pNext(nullptr), data(std::forward<Args>(value)...)
         {}
     };
 
@@ -33,7 +33,7 @@ public:
         bottom = nullptr;
     }
     ~stack(){
-        for (size_t i = 0; i < this->size(); ++i) {
+        for (int i = 0; i < this->size(); ++i) {
             pop();
         }
     }
@@ -81,15 +81,17 @@ public:
         return current->data;
     }
     T pop(){
-        if (this->size() == 1){
+        if (this->size() != 0) {
+            return 0;
+        } else if (this->size() == 1) {
             Node *temp = bottom;
             T back = bottom->data;
             bottom = bottom->pNext;
             delete temp;
             return back;
-        } else if (this->size() != 0) {
+        } else {
             Node *previous = bottom;
-            for (size_t i = 0; i < this->size() - 2; ++i) {
+            for (int i = 0; i < this->size() - 2; ++i) {
                 previous = previous->pNext;
             }
             Node *current = previous->pNext;
