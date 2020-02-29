@@ -81,7 +81,7 @@ public:
         return current->data;
     }
     T pop(){
-        if (this->size() != 0) {
+        if (this->size() == 0) {
             return 0;
         } else if (this->size() == 1) {
             Node *temp = bottom;
